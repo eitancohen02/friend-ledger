@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friend Ledger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Friend Ledger</h1>
+    <p>Track who owes whom, and settle up with as few payments as possible.</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Friends</h2>
+      <form id="friend-form">
+        <div class="row">
+          <input id="friend-name" type="text" placeholder="Friend's name" maxlength="30" required>
+          <button type="submit">Add friend</button>
+        </div>
+        <p class="hint">Pick a profile picture:</p>
+        <div id="new-friend-picker" class="avatar-picker"></div>
+      </form>
+      <ul id="friend-list" class="friend-grid"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Add a transaction</h2>
+      <form id="entry-form">
+        <div class="row">
+          <select id="entry-from" required></select>
+          <select id="entry-type">
+            <option value="debt">owes</option>
+            <option value="payment">paid</option>
+          </select>
+          <select id="entry-to" required></select>
+        </div>
+        <div class="row">
+          <input id="entry-amount" type="number" min="0.01" step="0.01" placeholder="Amount" required>
+          <input id="entry-note" type="text" placeholder="Note (optional)" maxlength="60">
+          <button type="submit">Add</button>
+        </div>
+        <p id="entry-error" class="error"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Balances</h2>
+      <ul id="balance-list" class="list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Who owes whom</h2>
+      <div class="columns">
+        <div>
+          <h3>Current debts</h3>
+          <ul id="pairwise-list" class="list"></ul>
+        </div>
+        <div>
+          <h3>Simplified</h3>
+          <ul id="simplified-list" class="list"></ul>
+          <button id="apply-simplify" type="button">Apply simplification</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>History</h2>
+      <ul id="history-list" class="list"></ul>
+      <button id="reset-all" type="button" class="danger">Reset everything</button>
+    </section>
+  </main>
+
+  <dialog id="avatar-dialog">
+    <h2 id="avatar-dialog-title">Change picture</h2>
+    <div id="edit-friend-picker" class="avatar-picker"></div>
+    <div class="dialog-buttons">
+      <button type="button" id="avatar-cancel" class="secondary">Cancel</button>
+      <button type="button" id="avatar-save">Save</button>
+    </div>
+  </dialog>
+
+  <script src="logic.js"></script>
+  <script src="avatars.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
