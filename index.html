@@ -37,8 +37,22 @@
           <select id="entry-type">
             <option value="debt">owes</option>
             <option value="payment">paid</option>
+            <option value="expense">paid a shared bill</option>
           </select>
           <select id="entry-to" required></select>
+        </div>
+        <div id="split-panel" class="split-panel" hidden>
+          <div class="split-header">
+            <label for="split-mode">Split</label>
+            <select id="split-mode">
+              <option value="equal">equally</option>
+              <option value="exact">by exact amounts</option>
+              <option value="percent">by percentages</option>
+              <option value="shares">by shares</option>
+            </select>
+          </div>
+          <ul id="split-list" class="split-list"></ul>
+          <p id="split-status" class="split-status"></p>
         </div>
         <div class="row">
           <input id="entry-amount" type="number" min="0.01" step="0.01" placeholder="Amount" required>
@@ -64,6 +78,7 @@
         <div>
           <h3>Simplified</h3>
           <ul id="simplified-list" class="list"></ul>
+          <p id="simplified-summary" class="hint"></p>
           <button id="apply-simplify" type="button">Apply simplification</button>
         </div>
       </div>

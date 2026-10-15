@@ -245,6 +245,45 @@ button.small {
   .columns { grid-template-columns: 1fr; }
 }
 
+.list .details { display: block; margin-left: 34px; }
+
+/* ---------- Shared bill split ---------- */
+
+.split-panel {
+  margin-bottom: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid var(--card-border);
+}
+.split-panel[hidden] { display: none; }
+.split-header { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; font-weight: 600; }
+.split-list { list-style: none; padding: 0; margin: 0; }
+.split-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+.split-list li:last-child { border-bottom: none; }
+.split-list li.excluded { opacity: 0.5; }
+.split-list .who { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; cursor: pointer; }
+.split-list input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); flex-shrink: 0; }
+.split-list input[type="number"] { width: 90px; padding: 6px 8px; }
+.split-list .suffix { width: 1.4em; color: var(--muted); font-size: 0.85rem; }
+.split-list .share { min-width: 76px; text-align: center; }
+.tag {
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: #000;
+  background: var(--accent);
+}
+.split-status { margin: 8px 0 0; font-size: 0.9rem; }
+.split-status.ok { color: var(--green); }
+.split-status.problem { color: var(--red); }
+
 .muted { color: var(--muted); font-size: 0.8rem; }
 .error { color: var(--red); margin: 0; min-height: 1.2em; }
 
